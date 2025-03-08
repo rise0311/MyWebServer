@@ -115,6 +115,9 @@ make: *** [<builtin>: webbench.o] Error 1
  sudo apt update
  sudo apt install libtirpc-dev
 ```
+同时在Makefile中添加以下命令:
+`CFLAGS += -I/usr/include/tirpc`
+注:最新版本的项目中,已经Makefile中添加该命令
 
 接下来开始测试:
 
