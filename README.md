@@ -91,16 +91,16 @@
 
 ## 四、压力测试
 
-首先执行以下命令安装依赖
+首先执行以下命令安装依赖  
 `sudo apt-get install exuberant-ctags`
 
-然后执行以下命令安装并编译Webbench
+然后执行以下命令安装并编译Webbench  
 `wget http://blog.s135.com/soft/linux/webbench/webbench-1.5.tar.gz`  
 `tar zxvf webbench-1.5.tar.gz`  
 `cd webbench-1.5`  
 `make && sudo make install`
 
-如果出现下面的报错:
+如果出现下面的报错:  
 
 ```shell
 cc -Wall -ggdb -W -O   -c -o webbench.o webbench.c
@@ -110,27 +110,27 @@ webbench.c:21:10: fatal error: rpc/types.h: No such file or directory
 compilation terminated.
 make: *** [<builtin>: webbench.o] Error 1
 ```
-需要运行以下命令
+需要运行以下命令  
 ```shell
  sudo apt update
  sudo apt install libtirpc-dev
 ```
-同时在Makefile中添加以下命令:
-`CFLAGS += -I/usr/include/tirpc`
-注:最新版本的项目中,已经Makefile中添加该命令
+同时在Makefile中添加以下命令:  
+`CFLAGS += -I/usr/include/tirpc`  
+注:最新版本的项目中,已经Makefile中添加该命令  
 
-接下来开始测试:
+接下来开始测试:  
 
-(1)运行服务器
+(1)运行服务器  
 `./server`
 
-(2)启动webbench测试
-`./webbench -2 -c m -t n url`
--2指定HTTP协议版本为1.1 (我的WebServer只支持1.1版本) 
--c指定客户端数量
--t指定Webbench持续运行的时间
-url是服务器地址
+(2)启动webbench测试  
+`./webbench -2 -c m -t n url`  
+-2指定HTTP协议版本为1.1 (我的WebServer只支持1.1版本)  
+-c指定客户端数量  
+-t指定Webbench持续运行的时间  
+url是服务器地址  
 
-(3)测试结果
+(3)测试结果  
 ![alt text](results/image.png)
 
