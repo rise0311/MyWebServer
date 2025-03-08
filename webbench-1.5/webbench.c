@@ -18,7 +18,8 @@
 #include "socket.c"
 #include <unistd.h>
 #include <sys/param.h>
-#include <rpc/types.h>
+//#include <rpc/types.h>
+#include <tirpc/rpc/types.h>
 #include <getopt.h>
 #include <strings.h>
 #include <time.h>
@@ -418,16 +419,16 @@ void benchcore(const char *host,const int port,const char *req)
        if(failed>0)
        {
           /* fprintf(stderr,"Correcting failed by signal\n"); */
-          printf("超时\n");
+         //  printf("超时\n");
           failed--;
        }
        return;
     }
     s=Socket(host,port);                          
     if(s<0) { failed++;continue;} 
-    if(rlen!=write(s,req,rlen)) {perror("write failed");;failed++;close(s);continue;}
+    if(rlen!=write(s,req,rlen)) {;failed++;close(s);continue;}
     if(http10==0) 
-	    if(shutdown(s,1)) { perror("shutdown()错误");failed++;close(s);continue;}
+	    if(shutdown(s,1)) { failed++;close(s);continue;}
     if(force==0) 
     {
             /* read all available data from socket */
@@ -438,7 +439,7 @@ void benchcore(const char *host,const int port,const char *req)
               /* fprintf(stderr,"%d\n",i); */
 	      if(i<0) 
               {
-                 perror("read()失败"); 
+               //   perror("read()失败"); 
                  failed++;
                  close(s);
                  goto nexttry;
@@ -449,7 +450,7 @@ void benchcore(const char *host,const int port,const char *req)
 			       bytes+=i;
 	    }
     }
-    if(close(s)) {printf("close失败\n");failed++;continue;}
+    if(close(s)) {failed++;continue;}
     speed++;
  }
 }

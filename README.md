@@ -100,13 +100,34 @@
 `cd webbench-1.5`  
 `make && sudo make install`
 
+如果出现下面的报错:
+
+```shell
+cc -Wall -ggdb -W -O   -c -o webbench.o webbench.c
+webbench.c:21:10: fatal error: rpc/types.h: No such file or directory
+   21 | #include <rpc/types.h>
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [<builtin>: webbench.o] Error 1
+```
+需要运行以下命令
+```shell
+ sudo apt update
+ sudo apt install libtirpc-dev
+```
+
 接下来开始测试:
+
 (1)运行服务器
 `./server`
+
 (2)启动webbench测试
-`./webbench -2 -c m -t n`
+`./webbench -2 -c m -t n url`
 -2指定HTTP协议版本为1.1 (我的WebServer只支持1.1版本) 
 -c指定客户端数量
 -t指定Webbench持续运行的时间
+url是服务器地址
 
+(3)测试结果
+![alt text](results/image.png)
 

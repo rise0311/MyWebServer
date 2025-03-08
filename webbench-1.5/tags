@@ -4,12 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-METHOD_GET	webbench.c	36;"	d	file:
-METHOD_HEAD	webbench.c	37;"	d	file:
-METHOD_OPTIONS	webbench.c	38;"	d	file:
-METHOD_TRACE	webbench.c	39;"	d	file:
-PROGRAM_VERSION	webbench.c	40;"	d	file:
-REQUEST_SIZE	webbench.c	51;"	d	file:
+METHOD_GET	webbench.c	37;"	d	file:
+METHOD_HEAD	webbench.c	38;"	d	file:
+METHOD_OPTIONS	webbench.c	39;"	d	file:
+METHOD_TRACE	webbench.c	40;"	d	file:
+PROGRAM_VERSION	webbench.c	41;"	d	file:
+REQUEST_SIZE	webbench.c	52;"	d	file:
 Socket	socket.c	/^int Socket(const char *host, int clientPort)$/;"	f
 alarm_handler	webbench.c	/^static void alarm_handler(int signal)$/;"	f	file:
 bench	webbench.c	/^static int bench(void)$/;"	f	file:
